@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span>Est Dispense</span> {{vm.estDispense.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Annee</span></dt>
+        <dd>
+            <span>{{vm.estDispense.annee}}</span>
+        </dd>
+        <dt><span>Coefficient</span></dt>
+        <dd>
+            <span>{{vm.estDispense.coefficient}}</span>
+        </dd>
+        <dt><span>Matiere</span></dt>
+        <dd>
+            <a ui-sref="matiere-detail({id:vm.estDispense.matiere.id})">{{vm.estDispense.matiere.id}}</a>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{vm.estDispense.user.id}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="est-dispense-detail.edit({id:vm.estDispense.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

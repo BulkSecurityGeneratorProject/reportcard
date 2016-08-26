@@ -1,0 +1,62 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-many",
+      "relationshipName": "passe",
+      "otherEntityName": "evaluation",
+      "otherEntityRelationshipName": "eleve"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "one-to-many",
+      "relationshipName": "inscrire",
+      "otherEntityName": "inscrire",
+      "otherEntityRelationshipName": "eleve"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "matricule",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "datenaissance",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "lieunaissance",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "sexe",
+      "fieldType": "Sexe",
+      "fieldValues": "MASCULIN,FEMININ"
+    }
+  ],
+  "changelogDate": "20160826163734",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "entityTableName": "eleve"
+}

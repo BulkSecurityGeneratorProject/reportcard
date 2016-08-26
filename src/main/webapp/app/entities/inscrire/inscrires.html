@@ -1,0 +1,68 @@
+<div>
+    <h2>Inscrires</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="inscrire.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Inscrire
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="annee"><span>Annee</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="eleve.id"><span>Eleve</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="classe.id"><span>Classe</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="inscrire in vm.inscrires track by inscrire.id">
+                    <td><a ui-sref="inscrire-detail({id:inscrire.id})">{{inscrire.id}}</a></td>
+                    <td>{{inscrire.annee}}</td>
+                    <td>
+                        <a ui-sref="eleve-detail({id:inscrire.eleve.id})">{{inscrire.eleve.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="classe-detail({id:inscrire.classe.id})">{{inscrire.classe.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="inscrire-detail({id:inscrire.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="inscrire.edit({id:inscrire.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="inscrire.delete({id:inscrire.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

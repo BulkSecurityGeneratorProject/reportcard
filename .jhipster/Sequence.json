@@ -1,0 +1,26 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-many",
+      "relationshipName": "evaluation",
+      "otherEntityName": "evaluation",
+      "otherEntityRelationshipName": "sequence"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "nom",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "changelogDate": "20160826163733",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "entityTableName": "sequence"
+}

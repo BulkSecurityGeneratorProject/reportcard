@@ -1,0 +1,26 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-many",
+      "relationshipName": "matiere",
+      "otherEntityName": "matiere",
+      "otherEntityRelationshipName": "categorie"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "libelle",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "changelogDate": "20160826163739",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "entityTableName": "categorie"
+}

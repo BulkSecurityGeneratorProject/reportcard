@@ -1,0 +1,38 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-many",
+      "relationshipName": "inscrire",
+      "otherEntityName": "inscrire",
+      "otherEntityRelationshipName": "classe"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "cycle",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required",
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": 1,
+      "fieldValidateRulesMax": 2
+    }
+  ],
+  "changelogDate": "20160826163735",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "entityTableName": "classe"
+}

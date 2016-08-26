@@ -1,0 +1,36 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "eleve",
+      "otherEntityName": "eleve",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "classe",
+      "otherEntityName": "classe",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "annee",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": 2016,
+      "fieldValidateRulesMax": 2050
+    }
+  ],
+  "changelogDate": "20160826163738",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "entityTableName": "inscrire"
+}

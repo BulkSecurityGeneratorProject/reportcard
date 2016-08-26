@@ -1,0 +1,40 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "categorie",
+      "otherEntityName": "categorie",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "one-to-many",
+      "relationshipName": "dispense",
+      "otherEntityName": "estDispense",
+      "otherEntityRelationshipName": "matiere"
+    },
+    {
+      "relationshipId": 3,
+      "relationshipType": "one-to-many",
+      "relationshipName": "evaluation",
+      "otherEntityName": "evaluation",
+      "otherEntityRelationshipName": "matiere"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "libelle",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "changelogDate": "20160826163740",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "entityTableName": "matiere"
+}

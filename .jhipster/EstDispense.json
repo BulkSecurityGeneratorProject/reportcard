@@ -1,0 +1,44 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "matiere",
+      "otherEntityName": "matiere",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "user",
+      "otherEntityName": "user",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "annee",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": 2016,
+      "fieldValidateRulesMax": 2050
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "coefficient",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "changelogDate": "20160826163737",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "entityTableName": "est_dispense"
+}

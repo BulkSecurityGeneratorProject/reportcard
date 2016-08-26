@@ -1,0 +1,79 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myEleveLabel">Create or edit a Eleve</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.eleve.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.eleve.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_matricule">Matricule</label>
+            <input type="text" class="form-control" name="matricule" id="field_matricule"
+                    ng-model="vm.eleve.matricule"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nom">Nom</label>
+            <input type="text" class="form-control" name="nom" id="field_nom"
+                    ng-model="vm.eleve.nom"
+                    required />
+            <div ng-show="editForm.nom.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nom.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_prenom">Prenom</label>
+            <input type="text" class="form-control" name="prenom" id="field_prenom"
+                    ng-model="vm.eleve.prenom"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_datenaissance">Datenaissance</label>
+                <div class="input-group">
+                    <input id="field_datenaissance" type="text" class="form-control" name="datenaissance" uib-datepicker-popup="{{dateformat}}" ng-model="vm.eleve.datenaissance" is-open="vm.datePickerOpenStatus.datenaissance"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('datenaissance')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.datenaissance.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.datenaissance.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lieunaissance">Lieunaissance</label>
+            <input type="text" class="form-control" name="lieunaissance" id="field_lieunaissance"
+                    ng-model="vm.eleve.lieunaissance"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_sexe">Sexe</label>
+            <select class="form-control" name="sexe" ng-model="vm.eleve.sexe" id="field_sexe">
+                <option value="MASCULIN">MASCULIN</option>
+                <option value="FEMININ">FEMININ</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

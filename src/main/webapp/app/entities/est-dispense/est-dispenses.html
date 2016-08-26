@@ -1,0 +1,70 @@
+<div>
+    <h2>Est Dispenses</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="est-dispense.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Est Dispense
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="annee"><span>Annee</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="coefficient"><span>Coefficient</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="matiere.id"><span>Matiere</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="user.id"><span>User</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="estDispense in vm.estDispenses track by estDispense.id">
+                    <td><a ui-sref="est-dispense-detail({id:estDispense.id})">{{estDispense.id}}</a></td>
+                    <td>{{estDispense.annee}}</td>
+                    <td>{{estDispense.coefficient}}</td>
+                    <td>
+                        <a ui-sref="matiere-detail({id:estDispense.matiere.id})">{{estDispense.matiere.id}}</a>
+                    </td>
+                    <td>
+                        {{estDispense.user.id}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="est-dispense-detail({id:estDispense.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="est-dispense.edit({id:estDispense.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="est-dispense.delete({id:estDispense.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

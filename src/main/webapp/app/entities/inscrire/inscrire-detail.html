@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Inscrire</span> {{vm.inscrire.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Annee</span></dt>
+        <dd>
+            <span>{{vm.inscrire.annee}}</span>
+        </dd>
+        <dt><span>Eleve</span></dt>
+        <dd>
+            <a ui-sref="eleve-detail({id:vm.inscrire.eleve.id})">{{vm.inscrire.eleve.id}}</a>
+        </dd>
+        <dt><span>Classe</span></dt>
+        <dd>
+            <a ui-sref="classe-detail({id:vm.inscrire.classe.id})">{{vm.inscrire.classe.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="inscrire-detail.edit({id:vm.inscrire.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>
