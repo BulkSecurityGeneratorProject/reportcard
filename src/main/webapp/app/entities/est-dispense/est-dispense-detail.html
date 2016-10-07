@@ -4,13 +4,13 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span>Annee</span></dt>
-        <dd>
-            <span>{{vm.estDispense.annee}}</span>
-        </dd>
         <dt><span>Coefficient</span></dt>
         <dd>
             <span>{{vm.estDispense.coefficient}}</span>
+        </dd>
+        <dt><span>Annee Academique</span></dt>
+        <dd>
+            <a ui-sref="annee-academique-detail({id:vm.estDispense.anneeAcademique.id})">{{vm.estDispense.anneeAcademique.id}}</a>
         </dd>
         <dt><span>Matiere</span></dt>
         <dd>

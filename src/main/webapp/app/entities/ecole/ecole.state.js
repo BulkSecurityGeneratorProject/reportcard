@@ -116,10 +116,12 @@
                         entity: function () {
                             return {
                                 nomfr: null,
-                                nomfr: null,
+                                noman: null,
                                 devisefr: null,
                                 devisean: null,
                                 boitepostal: null,
+                                logo: null,
+                                logoContentType: null,
                                 id: null
                             };
                         }

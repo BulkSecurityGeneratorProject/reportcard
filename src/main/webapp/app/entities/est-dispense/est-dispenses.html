@@ -19,8 +19,8 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="annee"><span>Annee</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="coefficient"><span>Coefficient</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="anneeAcademique.id"><span>Annee Academique</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="matiere.id"><span>Matiere</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="user.id"><span>User</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
@@ -29,8 +29,10 @@
             <tbody>
                 <tr ng-repeat="estDispense in vm.estDispenses track by estDispense.id">
                     <td><a ui-sref="est-dispense-detail({id:estDispense.id})">{{estDispense.id}}</a></td>
-                    <td>{{estDispense.annee}}</td>
                     <td>{{estDispense.coefficient}}</td>
+                    <td>
+                        <a ui-sref="annee-academique-detail({id:estDispense.anneeAcademique.id})">{{estDispense.anneeAcademique.id}}</a>
+                    </td>
                     <td>
                         <a ui-sref="matiere-detail({id:estDispense.matiere.id})">{{estDispense.matiere.id}}</a>
                     </td>

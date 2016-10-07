@@ -11,7 +11,7 @@
     },
     {
       "fieldId": 2,
-      "fieldName": "nomfr",
+      "fieldName": "noman",
       "fieldType": "String",
       "fieldValidateRules": [
         "required"
@@ -37,6 +37,12 @@
       "fieldId": 5,
       "fieldName": "boitepostal",
       "fieldType": "String"
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "logo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
     }
   ],
   "changelogDate": "20160826163731",

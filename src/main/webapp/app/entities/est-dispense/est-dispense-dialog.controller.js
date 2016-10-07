@@ -5,14 +5,15 @@
         .module('reportcardApp')
         .controller('EstDispenseDialogController', EstDispenseDialogController);
 
-    EstDispenseDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'EstDispense', 'Matiere', 'User'];
+    EstDispenseDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'EstDispense', 'AnneeAcademique', 'Matiere', 'User'];
 
-    function EstDispenseDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, EstDispense, Matiere, User) {
+    function EstDispenseDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, EstDispense, AnneeAcademique, Matiere, User) {
         var vm = this;
 
         vm.estDispense = entity;
         vm.clear = clear;
         vm.save = save;
+        vm.anneeacademiques = AnneeAcademique.query();
         vm.matieres = Matiere.query();
         vm.users = User.query();
 

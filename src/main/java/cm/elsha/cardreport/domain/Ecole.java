@@ -24,8 +24,8 @@ public class Ecole implements Serializable {
     private String nomfr;
 
     @NotNull
-    @Column(name = "nomfr", nullable = false)
-    private String nomfr;
+    @Column(name = "noman", nullable = false)
+    private String noman;
 
     @NotNull
     @Column(name = "devisefr", nullable = false)
@@ -37,6 +37,13 @@ public class Ecole implements Serializable {
 
     @Column(name = "boitepostal")
     private String boitepostal;
+
+    @Lob
+    @Column(name = "logo")
+    private byte[] logo;
+
+    @Column(name = "logo_content_type")
+    private String logoContentType;
 
     public Long getId() {
         return id;
@@ -54,12 +61,12 @@ public class Ecole implements Serializable {
         this.nomfr = nomfr;
     }
 
-    public String getNomfr() {
-        return nomfr;
+    public String getNoman() {
+        return noman;
     }
 
-    public void setNomfr(String nomfr) {
-        this.nomfr = nomfr;
+    public void setNoman(String noman) {
+        this.noman = noman;
     }
 
     public String getDevisefr() {
@@ -84,6 +91,22 @@ public class Ecole implements Serializable {
 
     public void setBoitepostal(String boitepostal) {
         this.boitepostal = boitepostal;
+    }
+
+    public byte[] getLogo() {
+        return logo;
+    }
+
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
+    }
+
+    public String getLogoContentType() {
+        return logoContentType;
+    }
+
+    public void setLogoContentType(String logoContentType) {
+        this.logoContentType = logoContentType;
     }
 
     @Override
@@ -111,10 +134,12 @@ public class Ecole implements Serializable {
         return "Ecole{" +
             "id=" + id +
             ", nomfr='" + nomfr + "'" +
-            ", nomfr='" + nomfr + "'" +
+            ", noman='" + noman + "'" +
             ", devisefr='" + devisefr + "'" +
             ", devisean='" + devisean + "'" +
             ", boitepostal='" + boitepostal + "'" +
+            ", logo='" + logo + "'" +
+            ", logoContentType='" + logoContentType + "'" +
             '}';
     }
 }

@@ -1,0 +1,56 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipType": "one-to-many",
+      "relationshipName": "evaluer",
+      "otherEntityName": "evaluation",
+      "otherEntityRelationshipName": "anneeAcademique"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipType": "one-to-many",
+      "relationshipName": "inscription",
+      "otherEntityName": "inscrire",
+      "otherEntityRelationshipName": "anneeAcademique"
+    },
+    {
+      "relationshipId": 3,
+      "relationshipType": "one-to-many",
+      "relationshipName": "dispenser",
+      "otherEntityName": "estDispense",
+      "otherEntityRelationshipName": "anneeAcademique"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "anneedebut",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required",
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": 2016,
+      "fieldValidateRulesMax": 2050
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "anneefin",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required",
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": 2017,
+      "fieldValidateRulesMax": 2051
+    }
+  ],
+  "changelogDate": "20161004041111",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "entityTableName": "annee_academique"
+}

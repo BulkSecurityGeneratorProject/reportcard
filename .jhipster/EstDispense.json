@@ -2,13 +2,20 @@
   "relationships": [
     {
       "relationshipId": 1,
+      "relationshipName": "anneeAcademique",
+      "otherEntityName": "anneeAcademique",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
       "relationshipName": "matiere",
       "otherEntityName": "matiere",
       "relationshipType": "many-to-one",
       "otherEntityField": "id"
     },
     {
-      "relationshipId": 2,
+      "relationshipId": 3,
       "relationshipName": "user",
       "otherEntityName": "user",
       "relationshipType": "many-to-one",
@@ -18,17 +25,6 @@
   "fields": [
     {
       "fieldId": 1,
-      "fieldName": "annee",
-      "fieldType": "Integer",
-      "fieldValidateRules": [
-        "min",
-        "max"
-      ],
-      "fieldValidateRulesMin": 2016,
-      "fieldValidateRulesMax": 2050
-    },
-    {
-      "fieldId": 2,
       "fieldName": "coefficient",
       "fieldType": "Integer",
       "fieldValidateRules": [

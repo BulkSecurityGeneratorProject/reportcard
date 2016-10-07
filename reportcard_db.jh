@@ -1,0 +1,111 @@
+entity Ecole{
+	nomfr String required
+	noman String required
+	devisefr String required
+	devisean String required
+	boitepostal String
+    logo Blob
+}
+
+entity Pays{
+	nompaysfr String required
+	nompaysan String required
+	ministerefr String required
+	ministerean String required
+	devisefr String required
+	devisean String required
+}
+
+entity Sequence{
+	numero Integer required min(1) max(6)
+}
+
+entity Eleve{
+	 matricule String
+	 nom String required
+	 prenom String
+	 datenaissance LocalDate required
+	 lieunaissance String
+	 sexe Sexe
+}
+enum Sexe{
+	MASCULIN,
+    FEMININ
+}
+
+entity Classe{
+	nom String required
+	cycle Integer required min(1) max(2)
+}
+
+entity AnneeAcademique{
+	anneedebut Integer required min(2016) max(2050)
+	anneefin Integer required min(2017) max(2051)
+}
+
+entity Evaluation{
+	note Double min(0) max(20)
+}
+
+
+entity EstDispense{
+	coefficient Integer required
+}
+
+entity Inscrire{
+}
+
+entity Categorie{
+	libelle String required
+}
+
+entity Matiere{
+	libelle String required
+}
+
+
+relationship OneToMany{
+	User{dispense} to EstDispense
+}
+
+relationship OneToMany{
+	AnneeAcademique{evaluer} to Evaluation
+}
+
+relationship OneToMany{
+	AnneeAcademique{inscription} to Inscrire
+}
+
+relationship OneToMany{
+	AnneeAcademique{dispenser} to EstDispense
+}
+
+relationship OneToMany{
+	Matiere{dispense} to EstDispense
+}
+
+relationship OneToMany{
+	Sequence{evaluation} to Evaluation
+}
+
+relationship OneToMany{
+	Eleve{passe} to Evaluation
+}
+
+relationship OneToMany{
+	Matiere{evaluation} to Evaluation
+}
+
+relationship OneToMany{
+	Categorie{matiere} to Matiere
+}
+
+relationship OneToMany{
+	Eleve{inscrire} to Inscrire
+}
+
+relationship OneToMany{
+	Classe{Inscrire} to Inscrire
+}
+
+paginate all with pagination

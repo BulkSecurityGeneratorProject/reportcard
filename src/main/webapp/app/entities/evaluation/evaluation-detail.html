@@ -8,10 +8,6 @@
         <dd>
             <span>{{vm.evaluation.note}}</span>
         </dd>
-        <dt><span>Annee</span></dt>
-        <dd>
-            <span>{{vm.evaluation.annee}}</span>
-        </dd>
         <dt><span>Sequence</span></dt>
         <dd>
             <a ui-sref="sequence-detail({id:vm.evaluation.sequence.id})">{{vm.evaluation.sequence.id}}</a>
@@ -19,6 +15,10 @@
         <dt><span>Eleve</span></dt>
         <dd>
             <a ui-sref="eleve-detail({id:vm.evaluation.eleve.id})">{{vm.evaluation.eleve.id}}</a>
+        </dd>
+        <dt><span>Annee Academique</span></dt>
+        <dd>
+            <a ui-sref="annee-academique-detail({id:vm.evaluation.anneeAcademique.id})">{{vm.evaluation.anneeAcademique.id}}</a>
         </dd>
         <dt><span>Matiere</span></dt>
         <dd>

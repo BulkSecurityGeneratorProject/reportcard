@@ -5,9 +5,9 @@
         .module('reportcardApp')
         .controller('EcoleController', EcoleController);
 
-    EcoleController.$inject = ['$scope', '$state', 'Ecole', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    EcoleController.$inject = ['$scope', '$state', 'DataUtils', 'Ecole', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
 
-    function EcoleController ($scope, $state, Ecole, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function EcoleController ($scope, $state, DataUtils, Ecole, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
         
         vm.loadPage = loadPage;
@@ -15,6 +15,8 @@
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
         vm.itemsPerPage = paginationConstants.itemsPerPage;
+        vm.openFile = DataUtils.openFile;
+        vm.byteSize = DataUtils.byteSize;
 
         loadAll();
 

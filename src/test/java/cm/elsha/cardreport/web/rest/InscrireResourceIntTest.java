@@ -37,9 +37,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = ReportcardApp.class)
 public class InscrireResourceIntTest {
 
-    private static final Integer DEFAULT_ANNEE = 2016;
-    private static final Integer UPDATED_ANNEE = 2017;
-
     @Inject
     private InscrireRepository inscrireRepository;
 
@@ -75,7 +72,6 @@ public class InscrireResourceIntTest {
     public static Inscrire createEntity(EntityManager em) {
         Inscrire inscrire = new Inscrire();
         inscrire = new Inscrire();
-        inscrire.setAnnee(DEFAULT_ANNEE);
         return inscrire;
     }
 
@@ -100,7 +96,6 @@ public class InscrireResourceIntTest {
         List<Inscrire> inscrires = inscrireRepository.findAll();
         assertThat(inscrires).hasSize(databaseSizeBeforeCreate + 1);
         Inscrire testInscrire = inscrires.get(inscrires.size() - 1);
-        assertThat(testInscrire.getAnnee()).isEqualTo(DEFAULT_ANNEE);
     }
 
     @Test
@@ -113,8 +108,7 @@ public class InscrireResourceIntTest {
         restInscrireMockMvc.perform(get("/api/inscrires?sort=id,desc"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(jsonPath("$.[*].id").value(hasItem(inscrire.getId().intValue())))
-                .andExpect(jsonPath("$.[*].annee").value(hasItem(DEFAULT_ANNEE)));
+                .andExpect(jsonPath("$.[*].id").value(hasItem(inscrire.getId().intValue())));
     }
 
     @Test
@@ -127,8 +121,7 @@ public class InscrireResourceIntTest {
         restInscrireMockMvc.perform(get("/api/inscrires/{id}", inscrire.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.id").value(inscrire.getId().intValue()))
-            .andExpect(jsonPath("$.annee").value(DEFAULT_ANNEE));
+            .andExpect(jsonPath("$.id").value(inscrire.getId().intValue()));
     }
 
     @Test
@@ -148,7 +141,6 @@ public class InscrireResourceIntTest {
 
         // Update the inscrire
         Inscrire updatedInscrire = inscrireRepository.findOne(inscrire.getId());
-        updatedInscrire.setAnnee(UPDATED_ANNEE);
 
         restInscrireMockMvc.perform(put("/api/inscrires")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -159,7 +151,6 @@ public class InscrireResourceIntTest {
         List<Inscrire> inscrires = inscrireRepository.findAll();
         assertThat(inscrires).hasSize(databaseSizeBeforeUpdate);
         Inscrire testInscrire = inscrires.get(inscrires.size() - 1);
-        assertThat(testInscrire.getAnnee()).isEqualTo(UPDATED_ANNEE);
     }
 
     @Test

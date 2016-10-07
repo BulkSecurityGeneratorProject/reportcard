@@ -115,7 +115,6 @@
                     resolve: {
                         entity: function () {
                             return {
-                                annee: null,
                                 coefficient: null,
                                 id: null
                             };

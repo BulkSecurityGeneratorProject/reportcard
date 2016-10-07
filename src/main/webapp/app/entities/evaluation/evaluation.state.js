@@ -116,7 +116,6 @@
                         entity: function () {
                             return {
                                 note: null,
-                                annee: null,
                                 id: null
                             };
                         }

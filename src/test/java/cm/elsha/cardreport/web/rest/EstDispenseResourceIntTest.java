@@ -37,9 +37,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = ReportcardApp.class)
 public class EstDispenseResourceIntTest {
 
-    private static final Integer DEFAULT_ANNEE = 2016;
-    private static final Integer UPDATED_ANNEE = 2017;
-
     private static final Integer DEFAULT_COEFFICIENT = 1;
     private static final Integer UPDATED_COEFFICIENT = 2;
 
@@ -78,7 +75,6 @@ public class EstDispenseResourceIntTest {
     public static EstDispense createEntity(EntityManager em) {
         EstDispense estDispense = new EstDispense();
         estDispense = new EstDispense();
-        estDispense.setAnnee(DEFAULT_ANNEE);
         estDispense.setCoefficient(DEFAULT_COEFFICIENT);
         return estDispense;
     }
@@ -104,7 +100,6 @@ public class EstDispenseResourceIntTest {
         List<EstDispense> estDispenses = estDispenseRepository.findAll();
         assertThat(estDispenses).hasSize(databaseSizeBeforeCreate + 1);
         EstDispense testEstDispense = estDispenses.get(estDispenses.size() - 1);
-        assertThat(testEstDispense.getAnnee()).isEqualTo(DEFAULT_ANNEE);
         assertThat(testEstDispense.getCoefficient()).isEqualTo(DEFAULT_COEFFICIENT);
     }
 
@@ -137,7 +132,6 @@ public class EstDispenseResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(estDispense.getId().intValue())))
-                .andExpect(jsonPath("$.[*].annee").value(hasItem(DEFAULT_ANNEE)))
                 .andExpect(jsonPath("$.[*].coefficient").value(hasItem(DEFAULT_COEFFICIENT)));
     }
 
@@ -152,7 +146,6 @@ public class EstDispenseResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(estDispense.getId().intValue()))
-            .andExpect(jsonPath("$.annee").value(DEFAULT_ANNEE))
             .andExpect(jsonPath("$.coefficient").value(DEFAULT_COEFFICIENT));
     }
 
@@ -173,7 +166,6 @@ public class EstDispenseResourceIntTest {
 
         // Update the estDispense
         EstDispense updatedEstDispense = estDispenseRepository.findOne(estDispense.getId());
-        updatedEstDispense.setAnnee(UPDATED_ANNEE);
         updatedEstDispense.setCoefficient(UPDATED_COEFFICIENT);
 
         restEstDispenseMockMvc.perform(put("/api/est-dispenses")
@@ -185,7 +177,6 @@ public class EstDispenseResourceIntTest {
         List<EstDispense> estDispenses = estDispenseRepository.findAll();
         assertThat(estDispenses).hasSize(databaseSizeBeforeUpdate);
         EstDispense testEstDispense = estDispenses.get(estDispenses.size() - 1);
-        assertThat(testEstDispense.getAnnee()).isEqualTo(UPDATED_ANNEE);
         assertThat(testEstDispense.getCoefficient()).isEqualTo(UPDATED_COEFFICIENT);
     }
 

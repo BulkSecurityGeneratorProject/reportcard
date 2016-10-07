@@ -20,9 +20,9 @@
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="note"><span>Note</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="annee"><span>Annee</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="sequence.id"><span>Sequence</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="eleve.id"><span>Eleve</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="anneeAcademique.id"><span>Annee Academique</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="matiere.id"><span>Matiere</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
@@ -31,12 +31,14 @@
                 <tr ng-repeat="evaluation in vm.evaluations track by evaluation.id">
                     <td><a ui-sref="evaluation-detail({id:evaluation.id})">{{evaluation.id}}</a></td>
                     <td>{{evaluation.note}}</td>
-                    <td>{{evaluation.annee}}</td>
                     <td>
                         <a ui-sref="sequence-detail({id:evaluation.sequence.id})">{{evaluation.sequence.id}}</a>
                     </td>
                     <td>
                         <a ui-sref="eleve-detail({id:evaluation.eleve.id})">{{evaluation.eleve.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="annee-academique-detail({id:evaluation.anneeAcademique.id})">{{evaluation.anneeAcademique.id}}</a>
                     </td>
                     <td>
                         <a ui-sref="matiere-detail({id:evaluation.matiere.id})">{{evaluation.matiere.id}}</a>

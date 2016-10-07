@@ -5,9 +5,9 @@
         .module('reportcardApp')
         .controller('EvaluationDialogController', EvaluationDialogController);
 
-    EvaluationDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Evaluation', 'Sequence', 'Eleve', 'Matiere'];
+    EvaluationDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Evaluation', 'Sequence', 'Eleve', 'AnneeAcademique', 'Matiere'];
 
-    function EvaluationDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Evaluation, Sequence, Eleve, Matiere) {
+    function EvaluationDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Evaluation, Sequence, Eleve, AnneeAcademique, Matiere) {
         var vm = this;
 
         vm.evaluation = entity;
@@ -15,6 +15,7 @@
         vm.save = save;
         vm.sequences = Sequence.query();
         vm.eleves = Eleve.query();
+        vm.anneeacademiques = AnneeAcademique.query();
         vm.matieres = Matiere.query();
 
         $timeout(function (){

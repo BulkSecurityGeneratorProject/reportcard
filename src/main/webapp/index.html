@@ -11,6 +11,8 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.css">
     <!-- endinject -->
     <!-- endbuild -->
     <!-- build:css content/css/main.css -->
@@ -21,7 +23,6 @@
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <page-ribbon></page-ribbon>
     <div ui-view="navbar" ng-cloak></div>
     <div class="container">
         <div class="well" ui-view="content">
@@ -48,6 +49,8 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <script src="bower_components/messageformat/messageformat.js"></script>
+    <script src="bower_components/arrive/src/arrive.js"></script>
+    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
@@ -61,6 +64,8 @@
     <script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
     <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
+    <script src="bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
 
@@ -87,7 +92,73 @@
     <script src="app/layouts/error/error.state.js"></script>
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
+    <script src="app/entities/sequence/sequence-dialog.controller.js"></script>
+    <script src="app/entities/sequence/sequence-detail.controller.js"></script>
+    <script src="app/entities/sequence/sequence-delete-dialog.controller.js"></script>
+    <script src="app/entities/sequence/sequence.state.js"></script>
+    <script src="app/entities/sequence/sequence.service.js"></script>
+    <script src="app/entities/sequence/sequence.controller.js"></script>
+    <script src="app/entities/pays/pays-dialog.controller.js"></script>
+    <script src="app/entities/pays/pays-detail.controller.js"></script>
+    <script src="app/entities/pays/pays-delete-dialog.controller.js"></script>
+    <script src="app/entities/pays/pays.state.js"></script>
+    <script src="app/entities/pays/pays.service.js"></script>
+    <script src="app/entities/pays/pays.controller.js"></script>
+    <script src="app/entities/matiere/matiere-dialog.controller.js"></script>
+    <script src="app/entities/matiere/matiere-detail.controller.js"></script>
+    <script src="app/entities/matiere/matiere-delete-dialog.controller.js"></script>
+    <script src="app/entities/matiere/matiere.state.js"></script>
+    <script src="app/entities/matiere/matiere.service.js"></script>
+    <script src="app/entities/matiere/matiere.controller.js"></script>
+    <script src="app/entities/inscrire/inscrire-dialog.controller.js"></script>
+    <script src="app/entities/inscrire/inscrire-detail.controller.js"></script>
+    <script src="app/entities/inscrire/inscrire-delete-dialog.controller.js"></script>
+    <script src="app/entities/inscrire/inscrire.state.js"></script>
+    <script src="app/entities/inscrire/inscrire.service.js"></script>
+    <script src="app/entities/inscrire/inscrire.controller.js"></script>
+    <script src="app/entities/evaluation/evaluation-dialog.controller.js"></script>
+    <script src="app/entities/evaluation/evaluation-detail.controller.js"></script>
+    <script src="app/entities/evaluation/evaluation-delete-dialog.controller.js"></script>
+    <script src="app/entities/evaluation/evaluation.state.js"></script>
+    <script src="app/entities/evaluation/evaluation.service.js"></script>
+    <script src="app/entities/evaluation/evaluation.controller.js"></script>
+    <script src="app/entities/est-dispense/est-dispense-dialog.controller.js"></script>
+    <script src="app/entities/est-dispense/est-dispense-detail.controller.js"></script>
+    <script src="app/entities/est-dispense/est-dispense-delete-dialog.controller.js"></script>
+    <script src="app/entities/est-dispense/est-dispense.state.js"></script>
+    <script src="app/entities/est-dispense/est-dispense.service.js"></script>
+    <script src="app/entities/est-dispense/est-dispense.controller.js"></script>
     <script src="app/entities/entity.state.js"></script>
+    <script src="app/entities/eleve/eleve-dialog.controller.js"></script>
+    <script src="app/entities/eleve/eleve-detail.controller.js"></script>
+    <script src="app/entities/eleve/eleve-delete-dialog.controller.js"></script>
+    <script src="app/entities/eleve/eleve.state.js"></script>
+    <script src="app/entities/eleve/eleve.service.js"></script>
+    <script src="app/entities/eleve/eleve.controller.js"></script>
+    <script src="app/entities/ecole/ecole-dialog.controller.js"></script>
+    <script src="app/entities/ecole/ecole-detail.controller.js"></script>
+    <script src="app/entities/ecole/ecole-delete-dialog.controller.js"></script>
+    <script src="app/entities/ecole/ecole.state.js"></script>
+    <script src="app/entities/ecole/ecole.service.js"></script>
+    <script src="app/entities/ecole/ecole.controller.js"></script>
+    <script src="app/entities/classe/classe-dialog.controller.js"></script>
+    <script src="app/entities/classe/classe-detail.controller.js"></script>
+    <script src="app/entities/classe/classe-delete-dialog.controller.js"></script>
+    <script src="app/entities/classe/classe.state.js"></script>
+    <script src="app/entities/classe/classe.service.js"></script>
+    <script src="app/entities/classe/classe.controller.js"></script>
+    <script src="app/entities/categorie/categorie-dialog.controller.js"></script>
+    <script src="app/entities/categorie/categorie-detail.controller.js"></script>
+    <script src="app/entities/categorie/categorie-delete-dialog.controller.js"></script>
+    <script src="app/entities/categorie/categorie.state.js"></script>
+    <script src="app/entities/categorie/categorie.service.js"></script>
+    <script src="app/entities/categorie/categorie.controller.js"></script>
+    <script src="app/entities/annee-academique/annee-academique-dialog.controller.js"></script>
+    <script src="app/entities/annee-academique/annee-academique-detail.controller.js"></script>
+    <script src="app/entities/annee-academique/annee-academique-delete-dialog.controller.js"></script>
+    <script src="app/entities/annee-academique/annee-academique.state.js"></script>
+    <script src="app/entities/annee-academique/annee-academique.service.js"></script>
+    <script src="app/entities/annee-academique/annee-academique.controller.js"></script>
     <script src="app/components/util/truncate-words.filter.js"></script>
     <script src="app/components/util/truncate-characters.filter.js"></script>
     <script src="app/components/util/sort-by.directive.js"></script>
@@ -117,6 +188,7 @@
     <script src="app/blocks/config/localstorage.config.js"></script>
     <script src="app/blocks/config/http.config.js"></script>
     <script src="app/blocks/config/compile.config.js"></script>
+    <script src="app/blocks/config/bootstrap-material.config.js"></script>
     <script src="app/blocks/config/alert.config.js"></script>
     <script src="app/app.state.js"></script>
     <script src="app/app.constants.js"></script>

@@ -23,8 +23,10 @@ public class Sequence implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "nom", nullable = false)
-    private Integer nom;
+    @Min(value = 1)
+    @Max(value = 6)
+    @Column(name = "numero", nullable = false)
+    private Integer numero;
 
     @OneToMany(mappedBy = "sequence")
     @JsonIgnore
@@ -38,12 +40,12 @@ public class Sequence implements Serializable {
         this.id = id;
     }
 
-    public Integer getNom() {
-        return nom;
+    public Integer getNumero() {
+        return numero;
     }
 
-    public void setNom(Integer nom) {
-        this.nom = nom;
+    public void setNumero(Integer numero) {
+        this.numero = numero;
     }
 
     public Set<Evaluation> getEvaluations() {
@@ -78,7 +80,7 @@ public class Sequence implements Serializable {
     public String toString() {
         return "Sequence{" +
             "id=" + id +
-            ", nom='" + nom + "'" +
+            ", numero='" + numero + "'" +
             '}';
     }
 }

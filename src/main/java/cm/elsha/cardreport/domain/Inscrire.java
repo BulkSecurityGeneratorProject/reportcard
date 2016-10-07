@@ -2,7 +2,6 @@ package cm.elsha.cardreport.domain;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -19,16 +18,14 @@ public class Inscrire implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Min(value = 2016)
-    @Max(value = 2050)
-    @Column(name = "annee")
-    private Integer annee;
-
     @ManyToOne
     private Eleve eleve;
 
     @ManyToOne
     private Classe classe;
+
+    @ManyToOne
+    private AnneeAcademique anneeAcademique;
 
     public Long getId() {
         return id;
@@ -36,14 +33,6 @@ public class Inscrire implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getAnnee() {
-        return annee;
-    }
-
-    public void setAnnee(Integer annee) {
-        this.annee = annee;
     }
 
     public Eleve getEleve() {
@@ -60,6 +49,14 @@ public class Inscrire implements Serializable {
 
     public void setClasse(Classe classe) {
         this.classe = classe;
+    }
+
+    public AnneeAcademique getAnneeAcademique() {
+        return anneeAcademique;
+    }
+
+    public void setAnneeAcademique(AnneeAcademique anneeAcademique) {
+        this.anneeAcademique = anneeAcademique;
     }
 
     @Override
@@ -86,7 +83,6 @@ public class Inscrire implements Serializable {
     public String toString() {
         return "Inscrire{" +
             "id=" + id +
-            ", annee='" + annee + "'" +
             '}';
     }
 }

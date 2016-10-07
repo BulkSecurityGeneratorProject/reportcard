@@ -25,15 +25,15 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="annee" type="integer">
-                <constraints nullable="false" />
-            </column>
-            
             <column name="sequence_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <column name="eleve_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="annee_academique_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

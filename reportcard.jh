@@ -1,6 +1,6 @@
 entity Ecole{
 	nomfr String required
-	nomfr String required
+	noman String required
 	devisefr String required
 	devisean String required
 	boitepostal String

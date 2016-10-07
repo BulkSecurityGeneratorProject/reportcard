@@ -5,9 +5,9 @@
         .module('reportcardApp')
         .controller('InscrireDetailController', InscrireDetailController);
 
-    InscrireDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Inscrire', 'Eleve', 'Classe'];
+    InscrireDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Inscrire', 'Eleve', 'Classe', 'AnneeAcademique'];
 
-    function InscrireDetailController($scope, $rootScope, $stateParams, previousState, entity, Inscrire, Eleve, Classe) {
+    function InscrireDetailController($scope, $rootScope, $stateParams, previousState, entity, Inscrire, Eleve, Classe, AnneeAcademique) {
         var vm = this;
 
         vm.inscrire = entity;

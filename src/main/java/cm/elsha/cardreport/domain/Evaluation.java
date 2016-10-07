@@ -24,17 +24,14 @@ public class Evaluation implements Serializable {
     @Column(name = "note")
     private Double note;
 
-    @NotNull
-    @Min(value = 2016)
-    @Max(value = 2050)
-    @Column(name = "annee", nullable = false)
-    private Integer annee;
-
     @ManyToOne
     private Sequence sequence;
 
     @ManyToOne
     private Eleve eleve;
+
+    @ManyToOne
+    private AnneeAcademique anneeAcademique;
 
     @ManyToOne
     private Matiere matiere;
@@ -55,14 +52,6 @@ public class Evaluation implements Serializable {
         this.note = note;
     }
 
-    public Integer getAnnee() {
-        return annee;
-    }
-
-    public void setAnnee(Integer annee) {
-        this.annee = annee;
-    }
-
     public Sequence getSequence() {
         return sequence;
     }
@@ -77,6 +66,14 @@ public class Evaluation implements Serializable {
 
     public void setEleve(Eleve eleve) {
         this.eleve = eleve;
+    }
+
+    public AnneeAcademique getAnneeAcademique() {
+        return anneeAcademique;
+    }
+
+    public void setAnneeAcademique(AnneeAcademique anneeAcademique) {
+        this.anneeAcademique = anneeAcademique;
     }
 
     public Matiere getMatiere() {
@@ -112,7 +109,6 @@ public class Evaluation implements Serializable {
         return "Evaluation{" +
             "id=" + id +
             ", note='" + note + "'" +
-            ", annee='" + annee + "'" +
             '}';
     }
 }

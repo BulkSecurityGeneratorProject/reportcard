@@ -20,5 +20,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="classe"/>
 
+        <addForeignKeyConstraint baseColumnNames="annee_academique_id"
+                                 baseTableName="inscrire"
+                                 constraintName="fk_inscrire_annee_academique_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="annee_academique"/>
+
     </changeSet>
 </databaseChangeLog>

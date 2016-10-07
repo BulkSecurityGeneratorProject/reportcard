@@ -25,7 +25,7 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="nomfr" type="varchar(255)">
+            <column name="noman" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             
@@ -38,6 +38,13 @@
             </column>
             
             <column name="boitepostal" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="logo" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="logo_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             

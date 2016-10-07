@@ -19,14 +19,12 @@ public class EstDispense implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Min(value = 2016)
-    @Max(value = 2050)
-    @Column(name = "annee")
-    private Integer annee;
-
     @NotNull
     @Column(name = "coefficient", nullable = false)
     private Integer coefficient;
+
+    @ManyToOne
+    private AnneeAcademique anneeAcademique;
 
     @ManyToOne
     private Matiere matiere;
@@ -42,20 +40,20 @@ public class EstDispense implements Serializable {
         this.id = id;
     }
 
-    public Integer getAnnee() {
-        return annee;
-    }
-
-    public void setAnnee(Integer annee) {
-        this.annee = annee;
-    }
-
     public Integer getCoefficient() {
         return coefficient;
     }
 
     public void setCoefficient(Integer coefficient) {
         this.coefficient = coefficient;
+    }
+
+    public AnneeAcademique getAnneeAcademique() {
+        return anneeAcademique;
+    }
+
+    public void setAnneeAcademique(AnneeAcademique anneeAcademique) {
+        this.anneeAcademique = anneeAcademique;
     }
 
     public Matiere getMatiere() {
@@ -98,7 +96,6 @@ public class EstDispense implements Serializable {
     public String toString() {
         return "EstDispense{" +
             "id=" + id +
-            ", annee='" + annee + "'" +
             ", coefficient='" + coefficient + "'" +
             '}';
     }

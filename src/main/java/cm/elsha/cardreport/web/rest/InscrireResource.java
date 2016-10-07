@@ -17,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -46,7 +45,7 @@ public class InscrireResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Inscrire> createInscrire(@Valid @RequestBody Inscrire inscrire) throws URISyntaxException {
+    public ResponseEntity<Inscrire> createInscrire(@RequestBody Inscrire inscrire) throws URISyntaxException {
         log.debug("REST request to save Inscrire : {}", inscrire);
         if (inscrire.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("inscrire", "idexists", "A new inscrire cannot already have an ID")).body(null);
@@ -70,7 +69,7 @@ public class InscrireResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Inscrire> updateInscrire(@Valid @RequestBody Inscrire inscrire) throws URISyntaxException {
+    public ResponseEntity<Inscrire> updateInscrire(@RequestBody Inscrire inscrire) throws URISyntaxException {
         log.debug("REST request to update Inscrire : {}", inscrire);
         if (inscrire.getId() == null) {
             return createInscrire(inscrire);

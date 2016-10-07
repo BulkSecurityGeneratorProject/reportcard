@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="inscrire.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Inscrire
+                       Nouvelle Inscription
                     </span>
                 </button>
             </div>
@@ -19,21 +19,23 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="annee"><span>Annee</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="eleve.id"><span>Eleve</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="classe.id"><span>Classe</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="anneeAcademique.id"><span>Annee Academique</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="inscrire in vm.inscrires track by inscrire.id">
                     <td><a ui-sref="inscrire-detail({id:inscrire.id})">{{inscrire.id}}</a></td>
-                    <td>{{inscrire.annee}}</td>
                     <td>
-                        <a ui-sref="eleve-detail({id:inscrire.eleve.id})">{{inscrire.eleve.id}}</a>
+                        <a ui-sref="eleve-detail({id:inscrire.eleve.id})">{{inscrire.eleve.nom}} {{inscrire.eleve.prenom}}</a>
                     </td>
                     <td>
-                        <a ui-sref="classe-detail({id:inscrire.classe.id})">{{inscrire.classe.id}}</a>
+                        <a ui-sref="classe-detail({id:inscrire.classe.id})">{{inscrire.classe.nom}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="annee-academique-detail({id:inscrire.anneeAcademique.id})">{{inscrire.anneeAcademique.anneedebut}}/{{inscrire.anneeAcademique.anneefin}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

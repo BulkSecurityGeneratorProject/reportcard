@@ -67,7 +67,7 @@ class EcoleGatlingTest extends Simulation {
             .exec(http("Create new ecole")
             .post("/api/ecoles")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "nomfr":"SAMPLE_TEXT", "nomfr":"SAMPLE_TEXT", "devisefr":"SAMPLE_TEXT", "devisean":"SAMPLE_TEXT", "boitepostal":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "nomfr":"SAMPLE_TEXT", "noman":"SAMPLE_TEXT", "devisefr":"SAMPLE_TEXT", "devisean":"SAMPLE_TEXT", "boitepostal":"SAMPLE_TEXT", "logo":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_ecole_url"))).exitHereIfFailed
             .pause(10)

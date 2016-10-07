@@ -14,17 +14,25 @@
                     ng-model="vm.sequence.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_nom">Nom</label>
-            <input type="number" class="form-control" name="nom" id="field_nom"
-                    ng-model="vm.sequence.nom"
-                    required />
-            <div ng-show="editForm.nom.$invalid">
+            <label class="control-label" for="field_numero">Numero</label>
+            <input type="number" class="form-control" name="numero" id="field_numero"
+                    ng-model="vm.sequence.numero"
+                    required min="1" max="6" />
+            <div ng-show="editForm.numero.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.nom.$error.required">
+                    ng-show="editForm.numero.$error.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.nom.$error.number">
+                    ng-show="editForm.numero.$error.min" translate-value-min="1">
+                    This field should be more than 1.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.numero.$error.max">
+                    This field cannot be more than 6.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.numero.$error.number">
                     This field should be a number.
                 </p>
             </div>

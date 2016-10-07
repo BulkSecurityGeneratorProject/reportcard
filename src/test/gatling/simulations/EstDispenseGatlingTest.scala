@@ -67,7 +67,7 @@ class EstDispenseGatlingTest extends Simulation {
             .exec(http("Create new estDispense")
             .post("/api/est-dispenses")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "annee":"0", "coefficient":"0"}""")).asJSON
+            .body(StringBody("""{"id":null, "coefficient":"0"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_estDispense_url"))).exitHereIfFailed
             .pause(10)

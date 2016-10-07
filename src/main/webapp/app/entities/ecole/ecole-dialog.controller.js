@@ -5,13 +5,15 @@
         .module('reportcardApp')
         .controller('EcoleDialogController', EcoleDialogController);
 
-    EcoleDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Ecole'];
+    EcoleDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Ecole'];
 
-    function EcoleDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Ecole) {
+    function EcoleDialogController ($timeout, $scope, $stateParams, $uibModalInstance, DataUtils, entity, Ecole) {
         var vm = this;
 
         vm.ecole = entity;
         vm.clear = clear;
+        vm.byteSize = DataUtils.byteSize;
+        vm.openFile = DataUtils.openFile;
         vm.save = save;
 
         $timeout(function (){
@@ -41,6 +43,17 @@
             vm.isSaving = false;
         }
 
+
+        vm.setLogo = function ($file, ecole) {
+            if ($file) {
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+                        ecole.logo = base64Data;
+                        ecole.logoContentType = $file.type;
+                    });
+                });
+            }
+        };
 
     }
 })();

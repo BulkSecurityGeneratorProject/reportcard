@@ -11,11 +11,15 @@
   "fields": [
     {
       "fieldId": 1,
-      "fieldName": "nom",
+      "fieldName": "numero",
       "fieldType": "Integer",
       "fieldValidateRules": [
-        "required"
-      ]
+        "required",
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": 1,
+      "fieldValidateRulesMax": 6
     }
   ],
   "changelogDate": "20160826163733",

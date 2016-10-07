@@ -16,6 +16,13 @@
     },
     {
       "relationshipId": 3,
+      "relationshipName": "anneeAcademique",
+      "otherEntityName": "anneeAcademique",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 4,
       "relationshipName": "matiere",
       "otherEntityName": "matiere",
       "relationshipType": "many-to-one",
@@ -33,18 +40,6 @@
       ],
       "fieldValidateRulesMin": 0,
       "fieldValidateRulesMax": 20
-    },
-    {
-      "fieldId": 2,
-      "fieldName": "annee",
-      "fieldType": "Integer",
-      "fieldValidateRules": [
-        "required",
-        "min",
-        "max"
-      ],
-      "fieldValidateRulesMin": 2016,
-      "fieldValidateRulesMax": 2050
     }
   ],
   "changelogDate": "20160826163736",

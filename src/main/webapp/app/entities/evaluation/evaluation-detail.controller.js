@@ -5,9 +5,9 @@
         .module('reportcardApp')
         .controller('EvaluationDetailController', EvaluationDetailController);
 
-    EvaluationDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Evaluation', 'Sequence', 'Eleve', 'Matiere'];
+    EvaluationDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Evaluation', 'Sequence', 'Eleve', 'AnneeAcademique', 'Matiere'];
 
-    function EvaluationDetailController($scope, $rootScope, $stateParams, previousState, entity, Evaluation, Sequence, Eleve, Matiere) {
+    function EvaluationDetailController($scope, $rootScope, $stateParams, previousState, entity, Evaluation, Sequence, Eleve, AnneeAcademique, Matiere) {
         var vm = this;
 
         vm.evaluation = entity;

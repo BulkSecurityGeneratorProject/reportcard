@@ -67,7 +67,7 @@ class InscrireGatlingTest extends Simulation {
             .exec(http("Create new inscrire")
             .post("/api/inscrires")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "annee":"0"}""")).asJSON
+            .body(StringBody("""{"id":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_inscrire_url"))).exitHereIfFailed
             .pause(10)

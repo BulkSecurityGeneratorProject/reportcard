@@ -40,9 +40,6 @@ public class EvaluationResourceIntTest {
     private static final Double DEFAULT_NOTE = 0D;
     private static final Double UPDATED_NOTE = 1D;
 
-    private static final Integer DEFAULT_ANNEE = 2016;
-    private static final Integer UPDATED_ANNEE = 2017;
-
     @Inject
     private EvaluationRepository evaluationRepository;
 
@@ -79,7 +76,6 @@ public class EvaluationResourceIntTest {
         Evaluation evaluation = new Evaluation();
         evaluation = new Evaluation();
         evaluation.setNote(DEFAULT_NOTE);
-        evaluation.setAnnee(DEFAULT_ANNEE);
         return evaluation;
     }
 
@@ -105,25 +101,6 @@ public class EvaluationResourceIntTest {
         assertThat(evaluations).hasSize(databaseSizeBeforeCreate + 1);
         Evaluation testEvaluation = evaluations.get(evaluations.size() - 1);
         assertThat(testEvaluation.getNote()).isEqualTo(DEFAULT_NOTE);
-        assertThat(testEvaluation.getAnnee()).isEqualTo(DEFAULT_ANNEE);
-    }
-
-    @Test
-    @Transactional
-    public void checkAnneeIsRequired() throws Exception {
-        int databaseSizeBeforeTest = evaluationRepository.findAll().size();
-        // set the field null
-        evaluation.setAnnee(null);
-
-        // Create the Evaluation, which fails.
-
-        restEvaluationMockMvc.perform(post("/api/evaluations")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(evaluation)))
-                .andExpect(status().isBadRequest());
-
-        List<Evaluation> evaluations = evaluationRepository.findAll();
-        assertThat(evaluations).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -137,8 +114,7 @@ public class EvaluationResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(evaluation.getId().intValue())))
-                .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE.doubleValue())))
-                .andExpect(jsonPath("$.[*].annee").value(hasItem(DEFAULT_ANNEE)));
+                .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE.doubleValue())));
     }
 
     @Test
@@ -152,8 +128,7 @@ public class EvaluationResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(evaluation.getId().intValue()))
-            .andExpect(jsonPath("$.note").value(DEFAULT_NOTE.doubleValue()))
-            .andExpect(jsonPath("$.annee").value(DEFAULT_ANNEE));
+            .andExpect(jsonPath("$.note").value(DEFAULT_NOTE.doubleValue()));
     }
 
     @Test
@@ -174,7 +149,6 @@ public class EvaluationResourceIntTest {
         // Update the evaluation
         Evaluation updatedEvaluation = evaluationRepository.findOne(evaluation.getId());
         updatedEvaluation.setNote(UPDATED_NOTE);
-        updatedEvaluation.setAnnee(UPDATED_ANNEE);
 
         restEvaluationMockMvc.perform(put("/api/evaluations")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -186,7 +160,6 @@ public class EvaluationResourceIntTest {
         assertThat(evaluations).hasSize(databaseSizeBeforeUpdate);
         Evaluation testEvaluation = evaluations.get(evaluations.size() - 1);
         assertThat(testEvaluation.getNote()).isEqualTo(UPDATED_NOTE);
-        assertThat(testEvaluation.getAnnee()).isEqualTo(UPDATED_ANNEE);
     }
 
     @Test

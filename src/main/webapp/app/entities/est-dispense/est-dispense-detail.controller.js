@@ -5,9 +5,9 @@
         .module('reportcardApp')
         .controller('EstDispenseDetailController', EstDispenseDetailController);
 
-    EstDispenseDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'EstDispense', 'Matiere', 'User'];
+    EstDispenseDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'EstDispense', 'AnneeAcademique', 'Matiere', 'User'];
 
-    function EstDispenseDetailController($scope, $rootScope, $stateParams, previousState, entity, EstDispense, Matiere, User) {
+    function EstDispenseDetailController($scope, $rootScope, $stateParams, previousState, entity, EstDispense, AnneeAcademique, Matiere, User) {
         var vm = this;
 
         vm.estDispense = entity;

@@ -8,9 +8,9 @@
         <dd>
             <span>{{vm.ecole.nomfr}}</span>
         </dd>
-        <dt><span>Nomfr</span></dt>
+        <dt><span>Noman</span></dt>
         <dd>
-            <span>{{vm.ecole.nomfr}}</span>
+            <span>{{vm.ecole.noman}}</span>
         </dd>
         <dt><span>Devisefr</span></dt>
         <dd>
@@ -23,6 +23,13 @@
         <dt><span>Boitepostal</span></dt>
         <dd>
             <span>{{vm.ecole.boitepostal}}</span>
+        </dd>
+        <dt><span>Logo</span></dt>
+        <dd>
+            <div ng-if="vm.ecole.logo">
+                <a ng-click="vm.openFile(vm.ecole.logoContentType, vm.ecole.logo)">open</a>
+                {{vm.ecole.logoContentType}}, {{vm.byteSize(vm.ecole.logo)}}
+            </div>
         </dd>
     </dl>
 

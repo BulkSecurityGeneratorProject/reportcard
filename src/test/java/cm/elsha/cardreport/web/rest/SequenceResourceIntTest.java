@@ -37,8 +37,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = ReportcardApp.class)
 public class SequenceResourceIntTest {
 
-    private static final Integer DEFAULT_NOM = 1;
-    private static final Integer UPDATED_NOM = 2;
+    private static final Integer DEFAULT_NUMERO = 1;
+    private static final Integer UPDATED_NUMERO = 2;
 
     @Inject
     private SequenceRepository sequenceRepository;
@@ -75,7 +75,7 @@ public class SequenceResourceIntTest {
     public static Sequence createEntity(EntityManager em) {
         Sequence sequence = new Sequence();
         sequence = new Sequence();
-        sequence.setNom(DEFAULT_NOM);
+        sequence.setNumero(DEFAULT_NUMERO);
         return sequence;
     }
 
@@ -100,15 +100,15 @@ public class SequenceResourceIntTest {
         List<Sequence> sequences = sequenceRepository.findAll();
         assertThat(sequences).hasSize(databaseSizeBeforeCreate + 1);
         Sequence testSequence = sequences.get(sequences.size() - 1);
-        assertThat(testSequence.getNom()).isEqualTo(DEFAULT_NOM);
+        assertThat(testSequence.getNumero()).isEqualTo(DEFAULT_NUMERO);
     }
 
     @Test
     @Transactional
-    public void checkNomIsRequired() throws Exception {
+    public void checkNumeroIsRequired() throws Exception {
         int databaseSizeBeforeTest = sequenceRepository.findAll().size();
         // set the field null
-        sequence.setNom(null);
+        sequence.setNumero(null);
 
         // Create the Sequence, which fails.
 
@@ -132,7 +132,7 @@ public class SequenceResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(sequence.getId().intValue())))
-                .andExpect(jsonPath("$.[*].nom").value(hasItem(DEFAULT_NOM)));
+                .andExpect(jsonPath("$.[*].numero").value(hasItem(DEFAULT_NUMERO)));
     }
 
     @Test
@@ -146,7 +146,7 @@ public class SequenceResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(sequence.getId().intValue()))
-            .andExpect(jsonPath("$.nom").value(DEFAULT_NOM));
+            .andExpect(jsonPath("$.numero").value(DEFAULT_NUMERO));
     }
 
     @Test
@@ -166,7 +166,7 @@ public class SequenceResourceIntTest {
 
         // Update the sequence
         Sequence updatedSequence = sequenceRepository.findOne(sequence.getId());
-        updatedSequence.setNom(UPDATED_NOM);
+        updatedSequence.setNumero(UPDATED_NUMERO);
 
         restSequenceMockMvc.perform(put("/api/sequences")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -177,7 +177,7 @@ public class SequenceResourceIntTest {
         List<Sequence> sequences = sequenceRepository.findAll();
         assertThat(sequences).hasSize(databaseSizeBeforeUpdate);
         Sequence testSequence = sequences.get(sequences.size() - 1);
-        assertThat(testSequence.getNom()).isEqualTo(UPDATED_NOM);
+        assertThat(testSequence.getNumero()).isEqualTo(UPDATED_NUMERO);
     }
 
     @Test

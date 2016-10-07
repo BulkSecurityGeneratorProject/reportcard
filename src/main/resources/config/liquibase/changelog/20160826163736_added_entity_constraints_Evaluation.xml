@@ -20,6 +20,12 @@
                                  referencedColumnNames="id"
                                  referencedTableName="eleve"/>
 
+        <addForeignKeyConstraint baseColumnNames="annee_academique_id"
+                                 baseTableName="evaluation"
+                                 constraintName="fk_evaluation_annee_academique_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="annee_academique"/>
+
         <addForeignKeyConstraint baseColumnNames="matiere_id"
                                  baseTableName="evaluation"
                                  constraintName="fk_evaluation_matiere_id"
